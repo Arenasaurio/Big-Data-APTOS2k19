@@ -1,0 +1,20 @@
+# Comandos NODO0
+docker compose config
+docker compose up -d
+docker compose ps
+docker compose logs namenode
+docker compose logs datanode
+docker compose logs spark-master
+docker compose logs spark-worker
+curl -I http://localhost:9870
+curl -I http://localhost:8080
+docker exec namenode hdfs dfsadmin -report
+
+# Comandos NODO 1A
+docker exec -it -w /home/jovyan/work workspace python scripts/dataset_info.py
+
+# Apagar stack
+docker compose down
+
+# Limpiar imagenes huerfanas
+docker image prune -f
