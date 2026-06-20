@@ -1,4 +1,23 @@
-data/raw/
-data/processed/
-data/sample/
+# 1. Ignorar estrictamente las carpetas pesadas de imágenes originales
+data/raw/train_images/
+data/raw/test_images/
+
+# 2. Ignorar el contenido de processed, forzando la estructura con .gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# 3. Archivos temporales de Python y Jupyter
 __pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# 4. Archivos de datos generados y formatos pesados
+*.parquet
+
+# 5. Archivos de variables de entorno locales
+hadoop.env
+.env
+
+# 6. Archivos de sistema operativo
+.DS_Store
+Thumbs.db
