@@ -39,7 +39,9 @@ services:
       - INIT_DAEMON_STEP=setup_spark
 
   spark-worker:
-    image: bde2020/spark-worker:3.3.0-hadoop3.3
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
     container_name: spark-worker
     depends_on:
       - spark-master
@@ -47,24 +49,25 @@ services:
       - "8081:8081"
     environment:
       - SPARK_MASTER=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=4g
+      - SPARK_WORKER_CORES=2
+    volumes:
+      - ./:/home/jovyan/work
 
   # --- NUEVO BLOQUE WORKSPACE / EDGE NODE ---
   workspace:
-    image: jupyter/all-spark-notebook:spark-3.5.0
+    build: .
     container_name: workspace
     user: root
     depends_on:
       - spark-master
     environment:
       - SPARK_MASTER=spark://spark-master:7077
-      - JUPYTER_ENABLE_LAB=yes
     ports:
       - "8888:8888" # Jupyter Lab
       - "8501:8501" # Streamlit
     volumes:
       - ./:/home/jovyan/work
-    command: >
-      bash -c "pip install tensorflow==2.16.1 streamlit pillow && start-notebook.sh --NotebookApp.token=''"
 
 volumes:
   hadoop_namenode:

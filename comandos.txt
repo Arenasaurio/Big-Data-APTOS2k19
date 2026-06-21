@@ -13,6 +13,20 @@ docker exec namenode hdfs dfsadmin -report
 # Comandos NODO 1A
 docker exec -it -w /home/jovyan/work workspace python scripts/dataset_info.py
 
+# Comandos NODO 2A
+docker exec -it -w /home/jovyan/work/src workspace spark-submit --master spark://spark-master:7077 preprocessing.py
+# Comandos nodo 2b
+docker exec -it -w /home/jovyan/work/src workspace python compactacion.py
+# Comandos nodo 2c
+ docker exec -it -w /home/jovyan/work/src workspace python preproc_dataset_info.py
+
+# Comandos 3A
+docker exec -it -w /home/jovyan/work/src workspace python model.py
+
+# Comandos 3B-4B
+docker exec -it -w /home/jovyan/work workspace streamlit run src/dashboard.py
+
+
 # Apagar stack
 docker compose down
 

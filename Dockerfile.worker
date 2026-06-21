@@ -1,0 +1,10 @@
+FROM bde2020/spark-worker:3.3.0-hadoop3.3
+
+USER root
+
+# Utilizar apk para instalar pip, compiladores C/C++ (build-base) y cabeceras de imagen
+RUN apk update && \
+    apk add --no-cache python3 py3-pip build-base python3-dev jpeg-dev zlib-dev libffi-dev
+
+# Instalar estrictamente las dependencias requeridas por la función del worker
+RUN pip3 install --no-cache-dir Pillow numpy

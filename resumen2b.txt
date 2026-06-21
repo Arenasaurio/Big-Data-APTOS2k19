@@ -1,0 +1,14 @@
+Resumen de Avances - Pipeline Big Data (APTOS 2019)
+
+1. Ajustes de Infraestructura (NODO 0 y NODO 1B)
+- Resolución de conflictos de versión: Se solucionó la incompatibilidad entre el entorno del workspace (Python 3.10) y los nodos de Spark (Python 3.7) mediante la creación de imágenes Docker personalizadas.
+- Construcción de imágenes nativas: Se diseñó un Dockerfile para el driver y un Dockerfile.worker para el nodo trabajador, basados en Debian Bullseye y Alpine respectivamente, asegurando la compatibilidad de dependencias de sistema (compiladores, librerías de imagen) con Java 11.
+- Gestión de dependencias: Se definió un requirements.txt robusto que incluye PySpark, Pandas y PyArrow. Se modificó el plan original para descartar TensorFlow, simplificando la arquitectura y el consumo de recursos.
+
+2. Ingesta y Preprocesamiento (NODO 2A)
+- Corrección del entorno distribuido: Se solucionó el error ModuleNotFoundError instalando Pillow directamente en los nodos trabajadores para que pudieran ejecutar las tareas en paralelo.
+- Ajuste de rutas y excepciones: Se modificó preprocessing.py para utilizar rutas absolutas coherentes con los volúmenes de Docker, evitando fallos silenciosos (ValueError: RDD is empty). El script ahora redimensiona las imágenes y extrae métricas estadísticas de color correctamente.
+
+3. Almacenamiento Parquet y EDA (NODO 2B)
+- Compactación de datos: Se resolvió el problema de fragmentación de archivos de Spark creando el script src/compactacion.py, el cual utiliza Pandas para consolidar múltiples fragmentos en un archivo único (metadata_single.parquet).
+- Generación automatizada de reportes: Se desarrolló src/generar_reporte.py, un script que lee el archivo Parquet consolidado y escribe los hallazgos en docs/eda_resultados.md, cumpliendo con la salida exacta del nodo.

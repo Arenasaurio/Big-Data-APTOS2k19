@@ -29,15 +29,25 @@ El desempeño del modelo se evaluará principalmente mediante:
 - **Accuracy:** proporción de predicciones correctas sobre el total de observaciones evaluadas.
 - **F1-score macro:** promedio no ponderado del F1-score de cada una de las 5 clases, seleccionado por encima del F1-score ponderado debido al desbalance esperado entre clases (las clases de mayor severidad suelen estar subrepresentadas en este tipo de datasets clínicos).
 
+## 4bis. Pipeline de modelado (actualización NODO 3A)
+
+El plan original consideraba TensorFlow como framework de extracción de características, pero fue descartado para simplificar la arquitectura y el consumo de recursos (ver `docs/resumen2b.txt`). El pipeline de modelado implementado finalmente es:
+
+1. **Extracción de features:** ResNet50 (PyTorch, pesos preentrenados) sobre cada imagen de fondo de ojo.
+2. **Reducción de dimensionalidad:** PCA, aplicado sobre los features extraídos para reducir el consumo de memoria antes de la inferencia distribuida.
+3. **Clasificación:** Random Forest (Spark MLlib), entrenado sobre los componentes principales resultantes del PCA.
+
+Este cambio de framework debe quedar documentado conforme a la sección 7 (Límites del alcance).
+
 ## 5. Organización del equipo
 
 El trabajo se distribuye en tres roles complementarios:
 
 | Rol | Responsable | Áreas de responsabilidad |
 |---|---|---|
-| A | Persona A | Obtención y preparación de datos, desarrollo del modelo predictivo. |
-| B | Persona B | Almacenamiento distribuido, infraestructura del clúster, desarrollo del dashboard. |
-| C | Persona C | Documentación técnica, diseño de la arquitectura del sistema, redacción del informe final. |
+| A | Francisco Domínguez Salas | Obtención y preparación de datos, desarrollo del modelo predictivo. |
+| B | Rodrigo Félix Palmeros | Almacenamiento distribuido, infraestructura del clúster, desarrollo del dashboard. |
+| C | César Eduardo Arenas Sánchez | Documentación técnica, diseño de la arquitectura del sistema, redacción del informe final. |
 
 ## 6. Plazo de ejecución
 
