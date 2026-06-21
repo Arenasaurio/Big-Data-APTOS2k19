@@ -21,3 +21,10 @@ hadoop.env
 # 6. Archivos de sistema operativo
 .DS_Store
 Thumbs.db
+
+# archivos otros
+plan_ejecucion_nodos.md
+resumen2b.txt
+comandos.txt
+.Rhistory
+stack.txt

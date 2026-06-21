@@ -103,14 +103,6 @@ Todos los scripts se ejecutan dentro del contenedor `workspace`, montado sobre e
 
 El dashboard de Streamlit queda disponible en `http://localhost:8501`, y Jupyter Lab en `http://localhost:8888`.
 
-## Notebooks
-
-| Notebook | Estado |
-|---|---|
-| `notebooks/01_ingesta.ipynb` | [PENDIENTE] |
-| `notebooks/02_preprocesamiento.ipynb` | [PENDIENTE] |
-| `notebooks/03_eda.ipynb` | [PENDIENTE] |
-| `notebooks/04_modelo.ipynb` | [PENDIENTE] |
 
 ## Pipeline de modelado
 
@@ -122,7 +114,7 @@ El plan original consideraba TensorFlow para la extracción de características,
 
 ## Dataset
 
-APTOS 2019 (Asia Pacific Tele-Ophthalmology Society), disponible en Kaggle. Ver `docs/alcance.md` [PENDIENTE] y `docs/dataset_info.md`.
+APTOS 2019 (Asia Pacific Tele-Ophthalmology Society), disponible en Kaggle. Ver `docs/alcance.md` y `docs/dataset_info.md`.
 
 Resumen de `docs/dataset_info.md`:
 
@@ -175,4 +167,4 @@ La clase 0 (ausencia de retinopatía) es la de mejor desempeño, con el mayor su
 
 ## Documentación
 
-Ver carpeta `docs/` para alcance, arquitectura e informe técnico [PENDIENTE según avance de nodos].
+Ver carpeta `docs/` para alcance, arquitectura.
