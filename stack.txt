@@ -1,8 +1,0 @@
-Stack Tecnologico por Seccion
--------------------------------------------------------------
-1. Almacenamiento Distribuido: Hadoop HDFS 3.3.x
-2. Procesamiento Distribuido: Apache Spark 3.5.x
-3. Extraccion de Features: TensorFlow/Keras (ResNet50)
-4. Machine Learning: Spark MLlib
-5. Dashboard / Visualizacion: Streamlit 1.3x
-6. Utilidades de Imagen: Pillow (PIL) para script de ingesta
