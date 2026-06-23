@@ -114,15 +114,15 @@ El plan original consideraba TensorFlow para la extracción de características,
 
 ## Dataset
 
-APTOS 2019 (Asia Pacific Tele-Ophthalmology Society), disponible en Kaggle. Ver `docs/alcance.md` y `docs/dataset_info.md`.
+APTOS 2019 (Asia Pacific Tele-Ophthalmology Society), disponible en [Kaggle](https://www.kaggle.com/competitions/aptos2019-blindness-detection/data). Ver [`docs/alcance.md`](docs/alcance.md) y [`docs/dataset_info.md`](docs/dataset_info.md).
 
-Resumen de `docs/dataset_info.md`:
+Resumen de [`docs/dataset_info.md`](docs/dataset_info.md):
 
 - Número total de imágenes (train): 3662
 - Tamaño en disco de `train_images/`: 8.01 GB
 - Resolución promedio (muestra de 200 imágenes): 2018 x 1529 px
 
-Nota: el tamaño aproximado estimado en `docs/alcance.md` fue de 5 GB; el tamaño real medido en `docs/dataset_info.md` es de 8.01 GB.
+Nota: el tamaño aproximado estimado en [`docs/alcance.md`](docs/alcance.md) fue de 5 GB; el tamaño real medido en [`docs/dataset_info.md`](docs/dataset_info.md) es de 8.01 GB.
 
 Distribución de clases de severidad:
 
